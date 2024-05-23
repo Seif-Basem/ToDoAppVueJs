@@ -1,25 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <title>To Do App</title>
 </head>
-<body>
-  <script type="importmap">
-    {
-      "imports": {
-        "vue": "/vue.js"
-      }
-    }
-  </script>
 
+<body>
   <div class="app" id="app">
     <div class="container">
       <section class="greeting">
-        <h2 class="title">What' up, <input type="text" maxlength="10" placeholder="Name here" v-model="name"/></h2>
+        <h2 class="title">What' up, <input type="text" maxlength="10" placeholder="Name here" v-model="name" /></h2>
       </section>
       <section class="create-todo">
         <h3>CREATE A TODO</h3>
@@ -30,7 +25,7 @@
         </form>
       </section>
       <div class="divider">
-        <p>Your List</p>  
+        <p>Your List</p>
         <span></span>
       </div>
       <section class="todolist">
@@ -38,17 +33,21 @@
           <li v-for="todo in todos" :key="todo" @click="doneTask(todo)" :class="{done : todo.done}">
             <div id="task">{{ todo.text }}</div>
             <div class="btn" @click.stop="removeTodo(todo)">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path
+                  d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
+              </svg>
             </div>
           </li>
         </ul>
       </section>
     </div>
-    <div class="copy">&copy; 2024 Created by <a href="https://seif-basem.github.io/" target="_blanck">Seif Basem</a></div>
+    <div class="copy">&copy; 2024 Created by <a href="https://seif-basem.github.io/" target="_blanck">Seif Basem</a>
+    </div>
   </div>
 
   <script type="module">
-    import { createApp } from 'vue'
+    import { createApp } from 'https://cdn.jsdelivr.net/npm/vue@3.2.31/dist/vue.esm-browser.js';
     createApp({
       data() {
         return {
@@ -62,7 +61,7 @@
           if (this.input_content.trim() === "") {
             return
           }
-          this.todos.push({ text:this.input_content, done: false });
+          this.todos.push({ text: this.input_content, done: false });
           this.input_content = ""; // Clear input field after adding
           this.updateLocalStorage(); // Update localStorage after adding
         },
@@ -103,4 +102,5 @@
     }).mount('#app')
   </script>
 </body>
+
 </html>
